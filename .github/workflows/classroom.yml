@@ -48,7 +48,7 @@ jobs:
          
     - name: Test3
       uses: actions/checkout@v4
-       with:
+      with:
          test-name: Test3
          id: test3
          command: "./test.sh"
