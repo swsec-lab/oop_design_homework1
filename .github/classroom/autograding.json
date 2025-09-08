@@ -1,0 +1,28 @@
+{
+  "tests": [
+    {
+      "name": "Test Case 1",
+      "setup": "echo Running Test 1",
+      "run": "compare.bat",
+      "input": "",
+      "output": "PASS 1",
+      "comparison": "contains"
+    },
+    {
+      "name": "Test Case 2",
+      "setup": "echo Running Test 2",
+      "run": "compare.bat",
+      "input": "",
+      "output": "PASS 2",
+      "comparison": "contains"
+    },
+    {
+      "name": "Test Case 3",
+      "setup": "echo Running Test 3",
+      "run": "compare.bat",
+      "input": "",
+      "output": "PASS 3",
+      "comparison": "contains"
+    }
+  ]
+}

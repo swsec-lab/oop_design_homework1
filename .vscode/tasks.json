@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "homework1.cpp",
-                "test1.cpp",
+                "main.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
