@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    args="1 2 3"
+else
+    args="$@"
+fi
+
+for i in $args; do
+    g++ main.cpp homework1.cpp -o main.exe
+    ./homework1.exe "$i" > "Test/output$i.txt"
+    
+    if ! diff "Test/output$i.txt" "Test/expected$i.txt" > /dev/null; then
+        echo "Test $i: FAIL"
+        exit 1
+    else
+        echo "Test $i: PASS"
+        exit 0
+    fi
+done
