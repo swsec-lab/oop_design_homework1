@@ -1,13 +1,21 @@
 @echo off
 setlocal enabledelayedexpansion
 
-for %%i in (%*) do (
+
+if "%~1"=="" (
+    set args=1 2 3
+) else (
+    set args=%*
+)
+
+for %%i in (!args!) do (
+    g++ main.cpp homework1.cpp -o homework1.exe
     main.exe %%i > Test\output%%i.txt
     fc Test\output%%i.txt Test\expected%%i.txt > nul
     if errorlevel 1 (
-        echo FAIL %%i
+        echo Test %%i: FAIL
     ) else (
-        echo PASS %%i
+        echo Test %%i: PASS
     )
 )
 

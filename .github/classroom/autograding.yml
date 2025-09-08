@@ -1,0 +1,58 @@
+
+
+name: Autograding
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  autograde:
+    runs-on: ubuntu-latestname: Autograding Summary
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  autograde:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install g++
+      run: sudo apt-get install g++
+
+    - name: Compile C++ code
+      run: g++ main.cpp homework1.cpp -o homework1.exe
+
+    - name: Run tests and show summary
+      run: |
+        echo "### Autograding Summary"
+        total=0
+        max=3
+
+        for i in 1 2 3; do
+          ./homework1.exe $i > Test/output${i}.txt
+          if diff -q Test/output${i}.txt Test/expected${i}.txt; then
+            echo "✅ Test $i: PASS"
+            total=$((total + 1))
+          else
+            echo "❌ Test $i: FAIL"
+          fi
+        done
+
+        echo ""
+        echo "📝 Total Passed: $total / $max"
+
+        # 실패한 경우 CI 실패 처리
+        if [ "$total" -lt "$max" ]; then
+          exit 1
+        fi
+
