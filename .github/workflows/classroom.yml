@@ -24,7 +24,7 @@ jobs:
 
     - name: Test1
       uses: actions/checkout@v4
-       with:
+      with:
          test-name: Test1
          id: test1
          command: "./test.sh"
@@ -36,7 +36,7 @@ jobs:
 
     - name: Test2
       uses: actions/checkout@v4
-       with:
+      with:
          test-name: Test2
          id: test2
          command: "./test.sh"
