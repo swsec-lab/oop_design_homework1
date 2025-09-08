@@ -32,27 +32,38 @@ jobs:
     - name: Compile C++ code
       run: g++ main.cpp homework1.cpp -o homework1.exe
 
-    - name: Run tests and show summary
-      run: |
-        echo "### Autograding Summary"
-        total=0
-        max=3
+    - name: Test1
+      uses: actions/checkout@v4
+       with:
+         test-name: Test1
+         id: test1
+         command: "./test.sh"
+         input: 1
+         expected-output: "Test 1: PASS"
+         comparison-method: exact
+         timeout: 5
+         points: 5
 
-        for i in 1 2 3; do
-          ./homework1.exe $i > Test/output${i}.txt
-          if diff -q Test/output${i}.txt Test/expected${i}.txt; then
-            echo "✅ Test $i: PASS"
-            total=$((total + 1))
-          else
-            echo "❌ Test $i: FAIL"
-          fi
-        done
-
-        echo ""
-        echo "📝 Total Passed: $total / $max"
-
-        # 실패한 경우 CI 실패 처리
-        if [ "$total" -lt "$max" ]; then
-          exit 1
-        fi
-
+    - name: Test2
+      uses: actions/checkout@v4
+       with:
+         test-name: Test2
+         id: test2
+         command: "./test.sh"
+         input: 2
+         expected-output: "Test 2: PASS"
+         comparison-method: exact
+         timeout: 5
+         points: 5
+         
+    - name: Test3
+      uses: actions/checkout@v4
+       with:
+         test-name: Test3
+         id: test3
+         command: "./test.sh"
+         input: 3
+         expected-output: "Test 3: PASS"
+         comparison-method: exact
+         timeout: 5
+         points: 5
