@@ -23,7 +23,6 @@ jobs:
       run: g++ main.cpp homework1.cpp -o homework1.exe
 
     - name: Test1
-      uses: actions/checkout@v4
       run: "./test.sh 1"
       expected-output: "Test 1: PASS"
       comparison-method: exact
@@ -31,7 +30,6 @@ jobs:
       points: 5
 
     - name: Test2
-      uses: actions/checkout@v4
       run: "./test.sh 2"
       expected-output: "Test 2: PASS"
       comparison-method: exact
@@ -39,7 +37,6 @@ jobs:
       points: 5
          
     - name: Test3
-      uses: actions/checkout@v4
       run: "./test.sh3 "
       expected-output: "Test 3: PASS"
       comparison-method: exact
