@@ -10,16 +10,6 @@ on:
 
 jobs:
   autograde:
-    runs-on: ubuntu-latestname: Autograding Summary
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  autograde:
     runs-on: ubuntu-latest
 
     steps:
