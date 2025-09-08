@@ -7,8 +7,8 @@ else
 fi
 
 for i in $args; do
-    g++ main.cpp homework1.cpp -o main.exe
-    ./homework1.exe "$i" > "Test/output$i.txt"
+    g++ main.cpp homework1.cpp -o main
+    ./main "$i" > "Test/output$i.txt"
     
     if ! diff "Test/output$i.txt" "Test/expected$i.txt" > /dev/null; then
         echo "Test $i: FAIL"
